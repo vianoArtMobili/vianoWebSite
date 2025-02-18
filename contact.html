@@ -266,7 +266,7 @@
                                 <span class="sub-title">Contactează-ne</span>
                                 <h2>Ai nevoie de ajutor? <br />Trimite mesaj.</h2>
                             </div>
-                            <form name="contact" method="POST" data-netlify="true" id="contact-form" class="default-form"> 
+                            <form name="contact" method="POST" action="sendMail.php" id="contact-form" class="default-form"> 
                                 <div class="row clearfix">
                                     <div class="col-lg-12 col-md-12 col-sm-12 form-group">
                                         <input type="text" name="username" placeholder="Nume" required>
@@ -288,6 +288,12 @@
                                     </div>
                                 </div>
                             </form>
+                             <!-- Mesajul de confirmare sau eroare -->
+                            <?php if (isset($_GET['message'])): ?>
+                                <p>
+                                    <?php echo $_GET['message'] == 'Successfull' ? 'Mesajul a fost trimis cu succes!' : 'A apărut o problemă la trimiterea mesajului.'; ?>
+                                </p>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12 content-column">
