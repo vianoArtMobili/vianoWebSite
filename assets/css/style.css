@@ -5570,8 +5570,10 @@ body.out .mouse-pointer {
 /** error-section **/
 
 .error-section{
-  position: relative;
-  padding: 350px 0px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .error-section .bg-layer{
@@ -6178,4 +6180,20 @@ body.out .mouse-pointer {
   position: relative;
   width: 100%;
   height: 500px;
+}
+
+/** newsletter-form-section **/
+
+#form-message {
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  width: auto;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

@@ -22,7 +22,7 @@
 <!-- Stylesheets -->
 <link rel="stylesheet" href="assets/css/bootstrap.css">
 <link rel="stylesheet" href="assets/css/style.css">
-<link rel="stylesheet" href="assets/css/font-awesome-all.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <link rel="stylesheet" href="assets/css/flaticon.css">
 <link rel="stylesheet" href="assets/css/owl.css">
 <link rel="stylesheet" href="assets/css/jquery.fancybox.css">
@@ -146,7 +146,9 @@
                                     </ul>
                                 </div>
                                 <ul class="social-box">
-                                    <li class="facebook"><a href="https://www.facebook.com/profile.php?id=100042064516905" target="_blank" target="_blank" class="fab fa-facebook-f"></a></li>
+                                    <li class="facebook"><a href="https://www.facebook.com/profile.php?id=100042064516905" target="_blank" class="fab fa-facebook-f"></a></li>
+                                    <li><a href="https://www.instagram.com/vianoartmobili/" target="_blank" class="fab fa-instagram"></a></li>
+                                    <li><a href="https://www.tiktok.com/@vianoartfurniture" target="_blank" class="fa-brands fa-tiktok"></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -234,6 +236,8 @@
                 <div class="social-links">
                     <ul class="clearfix">
                         <li><a href="https://www.facebook.com/profile.php?id=100042064516905" target="_blank" target="_blank"><span class="fab fa-facebook-square"></span></a></li>
+                        <li><a href="https://www.instagram.com/vianoartmobili/" target="_blank"><span class="fab fa-instagram-square"></span></a></li>
+                        <li><a href="https://www.tiktok.com/@vianoartfurniture" target="_blank"><span class="fa-brands fa-tiktok"></span></a></li>
                     </ul>
                 </div>
             </nav>
@@ -363,7 +367,9 @@
                 </div>
             </div>
             <ul class="social-links clearfix">
-                <li><a href="https://www.facebook.com/profile.php?id=100042064516905" target="_blank" target="_blank"><i class="icon-3"></i></a></li>    
+                <li><a href="https://www.facebook.com/profile.php?id=100042064516905" target="_blank"><i class="icon-3"></i></a></li>    
+                <li><a href="https://www.instagram.com/vianoartmobili/" target="_blank"><i class="icon-4"></i></a></li>    
+                <li><a href="https://www.tiktok.com/@vianoartfurniture" target="_blank"><i class="icon-tiktok"></i></a></li>
             </ul>
         </section>
         <!-- banner-section end -->
@@ -734,15 +740,22 @@
                                     <h3>Newsletter</h3>
                                 </div>
                                 <div class="widget-content">
-                                    <form action="contact.html" method="post">
+                                    <form name="newsletter" method="post" data-netlify="true" id="newsletter-form">
                                         <div class="form-group">
                                             <input type="email" name="email" placeholder="Email" required="">
                                             <button type="submit">Trimite</button>
                                         </div>
                                     </form>
+                                    <!-- Div pentru afișarea mesajului (bulina de dialog) -->
+                                    <div id="form-message" style="display: none;"></div>
+
+
+
                                     <ul class="social-links clearfix">
                                         <li><h4>Social Media :</h4></li>
-                                        <li><a href="https://www.facebook.com/profile.php?id=100042064516905" target="_blank"><i class="icon-3"></i></a></li>
+                                        <li><a href="https://www.facebook.com/profile.php?id=100042064516905" target="_blank"><i class="icon-3"></i></a></li>.
+                                        <li><a href="https://www.instagram.com/vianoartmobili/" target="_blank"><i class="icon-4"></i></a></li>    
+                                        <li><a href="https://www.tiktok.com/@vianoartfurniture" target="_blank"><i class="icon-tiktok"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -804,6 +817,10 @@
 
     </div>
 
+
+
+    <!-- Link to the external JavaScript file -->
+    <script src="assets/js/form-handler.js"></script>
 
     <!-- jequery plugins -->
     <script src="assets/js/jquery.js"></script>
