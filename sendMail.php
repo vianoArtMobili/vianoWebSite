@@ -1,5 +1,5 @@
 <?php
-ini_set("include_path", '/home/username/php:' . ini_get("include_path"));
+ini_set("include_path", '/home/vianoart/php:' . ini_get("include_path"));
 require_once "Mail.php";
 
 // Încarcă datele SMTP din `phoconfig.php`
