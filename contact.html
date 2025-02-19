@@ -288,7 +288,14 @@
                                     </div>
                                 </div>
                             </form>
-                            <div id="responseMessage" style="display: none;"></div>
+                            
+                            <!-- Overlay -->
+                            <div class="overlay" id="overlay"></div>
+
+                            <!-- Popup box -->
+                            <div class="popup" id="popup">
+                                <p id="message-text"></p>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12 content-column">
@@ -339,14 +346,12 @@
                                     <h3>Newsletter</h3>
                                 </div>
                                 <div class="widget-content">
-                                    <form name="newsletter" method="post" data-netlify="true" id="newsletter-form">
+                                    <form name="newsletter" method="post" id="newsletter-form">
                                         <div class="form-group">
                                             <input type="email" name="email" placeholder="Email" required="">
                                             <button type="submit">Trimite</button>
                                         </div>
                                     </form>
-                                    <!-- Div pentru afișarea mesajului (bulina de dialog) -->
-                                    <div id="form-message-newsletter" style="display: none;"></div>
                                     <ul class="social-links clearfix">
                                         <li><h4>Social Media :</h4></li>
                                         <li><a href="https://www.facebook.com/profile.php?id=100042064516905" target="_blank"><i class="icon-3"></i></a></li>

@@ -5,16 +5,12 @@ require_once "/home/vianoart/php/Mail.php";
 // Încarcă datele SMTP din `phoconfig.php`
 $config = include('/home/vianoart/phpconfig.php');
 
-// Preia datele din formular
-$name = isset($_POST['username']) ? htmlspecialchars($_POST['username']) : '';
-$phone = isset($_POST['phone']) ? htmlspecialchars($_POST['phone']) : '';
-$subject = isset($_POST['subject']) ? htmlspecialchars($_POST['subject']) : '';
+// Preia emailul din formular
 $email = isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '';
-$message = isset($_POST['message']) ? htmlspecialchars($_POST['message']) : '';
 
-// Verifică dacă sunt completate toate câmpurile
-if (empty($name) || empty($phone) || empty($email) || empty($message)) {
-  echo json_encode(['status' => 'error', 'message' => 'Toate câmpurile sunt obligatorii.']);
+// Verifică dacă câmpul email este completat
+if (empty($email)) {
+  echo json_encode(['status' => 'error', 'message' => 'Este necesar să completezi câmpul cu email.']);
   exit; // Termină execuția scriptului
 }
 
@@ -22,8 +18,8 @@ if (empty($name) || empty($phone) || empty($email) || empty($message)) {
 $from = $config['smtp_user']; // Adresa care trimite
 $to = $config['to_email']; // Adresa care primește
 
-$subject = "Mesaj nou de la $name";
-$body = "Ai primit un mesaj de la $name ($email):\n\n$message";
+$subject = "Nouă abonare la newsletter";
+$body = "Ai un nou abonat la newsletter: $email";
 
 $headers = array(
     'MIME-Version' => '1.0',
@@ -46,8 +42,8 @@ $mail = $smtp->send($to, $headers, $body);
 
 // Răspuns JSON în funcție de succesul trimiterii emailului
 if (PEAR::isError($mail)) {
-  echo json_encode(['status' => 'error', 'message' => 'Eroare la trimiterea mesajului. ❌' . $mail->getMessage()]);
+  echo json_encode(['status' => 'error', 'message' => 'Eroare la trimitere. Încearcă din nou. ❌' . $mail->getMessage()]);
 } else {
-  echo json_encode(['status' => 'success', 'message' => 'Mesaj trimis cu succes! ✅']);
+  echo json_encode(['status' => 'success', 'message' => 'Te-ai abonat cu succes la newsletter! ✅']);
 }
 ?>

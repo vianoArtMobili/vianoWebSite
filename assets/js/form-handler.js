@@ -1,37 +1,41 @@
-document.querySelector("#newsletter-form").addEventListener("submit", function(event) {
+function openPopup(message, status) {
+  document.getElementById("message-text").textContent = message;
+
+  if(status === 200){
+      document.getElementById("message-text").style.color = "green";
+  } else {
+      document.getElementById("message-text").style.color = "red";
+  }
+  document.getElementById("popup").style.display = "block";
+  document.getElementById("overlay").style.display = "block";
+  setTimeout(closePopup, 3000);
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+  document.getElementById("overlay").style.display = "none";
+}
+
+
+document.getElementById('newsletter-form').addEventListener('submit', function(event) {
   event.preventDefault();
   const form = event.target;
-  const formData = new FormData(form);
-  const messageDiv = document.querySelector("#form-message");
-
-  fetch("/", {
-      method: "POST",
-      body: formData,
+  const formData = new FormData(this); 
+  
+  fetch('sendNewsletter.php', {
+      method: 'POST',
+      body: formData
   })
-  .then(() => {
-      messageDiv.textContent = "Formular trimis cu succes!";
-      messageDiv.style.backgroundColor = "#B19777";
-      messageDiv.style.color = "#fff";
-      messageDiv.style.display = "block";
-      messageDiv.style.padding = "5px";
-      messageDiv.style.fontSize = "20px";
-      
-      setTimeout(function() {
-        messageDiv.style.display = "none";
-    }, 3000);
-
-    form.reset();
+  .then(response => response.json())
+  .then(data => {
+      if (data.status === 'success') {
+          openPopup(`${data.message}`, 200);
+          form.reset();
+          
+      }
   })
-  .catch((error) => {
-      messageDiv.textContent = "Eroare la trimitere. Încearcă din nou.";
-      messageDiv.style.backgroundColor = "#f44336";
-      messageDiv.style.color = "#fff";
-      messageDiv.style.display = "block";
-      messageDiv.style.padding = "5px";
-      messageDiv.style.fontSize = "20px";
-      
-      setTimeout(function() {
-        messageDiv.style.display = "none";
-    }, 3000);
+  .catch(error => {
+      openPopup(`${error.message}`, 500);
+      form.reset();
   });
 });

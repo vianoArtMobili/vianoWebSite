@@ -1,9 +1,26 @@
+function openPopup(message, status) {
+    document.getElementById("message-text").textContent = message;
+
+    if(status === 200){
+        document.getElementById("message-text").style.color = "green";
+    } else {
+        document.getElementById("message-text").style.color = "red";
+    }
+    document.getElementById("popup").style.display = "block";
+    document.getElementById("overlay").style.display = "block";
+    setTimeout(closePopup, 3000);
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+    document.getElementById("overlay").style.display = "none";
+}
+
+
 document.getElementById('contactForm').addEventListener('submit', function(event) {
     event.preventDefault();
     const form = event.target;
     const formData = new FormData(this); 
-    const messageDiv = document.getElementById('responseMessage');
-
     
     fetch('sendMail.php', {
         method: 'POST',
@@ -12,31 +29,13 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     .then(response => response.json())
     .then(data => {
         if (data.status === 'success') {
-            messageDiv.textContent = "Formular trimis cu succes!";;
-            messageDiv.style.backgroundColor = "#B19777";
-            messageDiv.style.color = "#fff";
-            messageDiv.style.display = "block";
-            messageDiv.style.padding = "5px";
-            messageDiv.style.fontSize = "20px";
-
-            setTimeout(function() {
-                messageDiv.style.display = "none";
-            }, 3000);
-        
+            openPopup(`${data.message}`, 200);
             form.reset();
             
         }
     })
     .catch(error => {
-        messageDiv.textContent = "Eroare la trimitere. Încearcă din nou.";
-        messageDiv.style.backgroundColor = "#f44336";
-        messageDiv.style.color = "#fff";
-        messageDiv.style.display = "block";
-        messageDiv.style.padding = "5px";
-        messageDiv.style.fontSize = "20px";
-
-        setTimeout(function() {
-            messageDiv.style.display = "none";
-        }, 3000);
+        openPopup(`${error.message}`, 500);
+        form.reset();
     });
 });
