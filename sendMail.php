@@ -1,32 +1,50 @@
 <?php
+ini_set("include_path", '/home/username/php:' . ini_get("include_path"));
+require_once "Mail.php";
 
-// Define some constants
-define( "RECIPIENT_NAME", "Viano Art Mobili" );
-define( "RECIPIENT_EMAIL", "office@vianoartmobili.ro" );
+// Încarcă datele SMTP din `phoconfig.php`
+$config = include('/home/vianoart/phpconfig.php');
 
+// Preia datele din formular
+$name = isset($_POST['username']) ? htmlspecialchars($_POST['username']) : '';
+$phone = isset($_POST['phone']) ? htmlspecialchars($_POST['phone']) : '';
+$subject = isset($_POST['subject']) ? htmlspecialchars($_POST['subject']) : '';
+$email = isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '';
+$message = isset($_POST['message']) ? htmlspecialchars($_POST['message']) : '';
 
-// Read the form values
-$success = false;
-$userName = isset( $_POST['username'] ) ? preg_replace( "/[^\s\S\.\-\_\@a-zA-Z0-9]/", "", $_POST['username'] ) : "";
-$senderEmail = isset( $_POST['email'] ) ? preg_replace( "/[^\.\-\_\@a-zA-Z0-9]/", "", $_POST['email'] ) : "";
-$userPhone = isset( $_POST['phone'] ) ? preg_replace( "/[^\s\S\.\-\_\@a-zA-Z0-9]/", "", $_POST['phone'] ) : "";
-$userSubject = isset( $_POST['subject'] ) ? preg_replace( "/[^\s\S\.\-\_\@a-zA-Z0-9]/", "", $_POST['subject'] ) : "";
-$message = isset( $_POST['message'] ) ? preg_replace( "/(From:|To:|BCC:|CC:|Subject:|Content-Type:)/", "", $_POST['message'] ) : "";
-
-// If all values exist, send the email
-if ( $userName && $senderEmail && $userPhone && $userSubject && $message) {
-  $recipient = RECIPIENT_NAME . " <" . RECIPIENT_EMAIL . ">";
-  $headers = "From: " . $userName . "";
-  $msgBody = " Name: ". $userName . " Email: ". $senderEmail . " Phone: ". $userPhone . " Subject: ". $userSubject . " Message: " . $message . "";
-  $success = mail( $recipient, $headers, $msgBody );
-
-  //Set Location After Successsfull Submission
-  header('Location: contact.html?message=Successfull');
+if (empty($name) || empty($phone) || empty($email) || empty($message)) {
+    die("Toate câmpurile sunt obligatorii.");
 }
 
-else{
-	//Set Location After Unsuccesssfull Submission
-  	header('Location: contact.html?message=Failed');	
-}
+// Setează datele emailului
+$from = $config['smtp_user']; // Adresa care trimite
+$to = $config['to_email']; // Adresa care primește
 
+$subject = "Mesaj nou de la $name";
+$body = "Ai primit un mesaj de la $name ($email):\n\n$message";
+
+$headers = array(
+    'MIME-Version' => '1.0',
+    'Content-Type' => 'text/html; charset=UTF-8',
+    'From' => $from,
+    'Reply-To' => $email,
+    'To' => $to,
+    'Subject' => $subject
+);
+
+$smtp = Mail::factory('smtp', array(
+    'host' => $config['host'],
+    'auth' => true,
+    'username' => $config['smtp_user'],
+    'password' => $config['smtp_pass']
+));
+
+// Trimite emailul
+$mail = $smtp->send($to, $headers, $body);
+
+if (PEAR::isError($mail)) {
+    echo "Eroare: " . $mail->getMessage();
+} else {
+    echo "Mesaj trimis cu succes!";
+}
 ?>
