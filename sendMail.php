@@ -12,8 +12,10 @@ $subject = isset($_POST['subject']) ? htmlspecialchars($_POST['subject']) : '';
 $email = isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '';
 $message = isset($_POST['message']) ? htmlspecialchars($_POST['message']) : '';
 
+// Verifică dacă sunt completate toate câmpurile
 if (empty($name) || empty($phone) || empty($email) || empty($message)) {
-    die("Toate câmpurile sunt obligatorii.");
+  echo json_encode(['status' => 'error', 'message' => 'Toate câmpurile sunt obligatorii.']);
+  exit; // Termină execuția scriptului
 }
 
 // Setează datele emailului
@@ -42,9 +44,10 @@ $smtp = Mail::factory('smtp', array(
 // Trimite emailul
 $mail = $smtp->send($to, $headers, $body);
 
+// Răspuns JSON în funcție de succesul trimiterii emailului
 if (PEAR::isError($mail)) {
-    echo "Eroare: " . $mail->getMessage();
+  echo json_encode(['status' => 'error', 'message' => 'Eroare la trimiterea mesajului: ' . $mail->getMessage()]);
 } else {
-    echo "Mesaj trimis cu succes!";
+  echo json_encode(['status' => 'success', 'message' => 'Mesaj trimis cu succes!']);
 }
 ?>
