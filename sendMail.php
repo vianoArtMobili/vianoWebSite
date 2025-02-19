@@ -1,6 +1,6 @@
 <?php
 ini_set("include_path", '/home/vianoart/php:' . ini_get("include_path"));
-require_once "Mail.php";
+require_once "/home/vianoart/php/Mail.php";
 
 // Încarcă datele SMTP din `phoconfig.php`
 $config = include('/home/vianoart/phpconfig.php');
