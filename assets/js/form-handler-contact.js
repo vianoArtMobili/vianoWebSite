@@ -16,6 +16,8 @@ document.getElementById('contactForm').addEventListener('submit', function(event
             messageDiv.style.backgroundColor = "#B19777";
             messageDiv.style.color = "#fff";
             messageDiv.style.display = "block";
+            messageDiv.style.padding = "5px";
+            messageDiv.style.fontSize = "20px";
 
             setTimeout(function() {
                 messageDiv.style.display = "none";
@@ -23,15 +25,6 @@ document.getElementById('contactForm').addEventListener('submit', function(event
         
             form.reset();
             
-        } else {
-            messageDiv.textContent = "Eroare la trimitere. Încearcă din nou.";
-            messageDiv.style.backgroundColor = "#f44336";
-            messageDiv.style.color = "#fff";
-            messageDiv.style.display = "block";
-
-            setTimeout(function() {
-                messageDiv.style.display = "none";
-            }, 3000);
         }
     })
     .catch(error => {
@@ -39,6 +32,8 @@ document.getElementById('contactForm').addEventListener('submit', function(event
         messageDiv.style.backgroundColor = "#f44336";
         messageDiv.style.color = "#fff";
         messageDiv.style.display = "block";
+        messageDiv.style.padding = "5px";
+        messageDiv.style.fontSize = "20px";
 
         setTimeout(function() {
             messageDiv.style.display = "none";

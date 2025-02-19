@@ -13,6 +13,8 @@ document.querySelector("#newsletter-form").addEventListener("submit", function(e
       messageDiv.style.backgroundColor = "#B19777";
       messageDiv.style.color = "#fff";
       messageDiv.style.display = "block";
+      messageDiv.style.padding = "5px";
+      messageDiv.style.fontSize = "20px";
       
       setTimeout(function() {
         messageDiv.style.display = "none";
@@ -25,6 +27,8 @@ document.querySelector("#newsletter-form").addEventListener("submit", function(e
       messageDiv.style.backgroundColor = "#f44336";
       messageDiv.style.color = "#fff";
       messageDiv.style.display = "block";
+      messageDiv.style.padding = "5px";
+      messageDiv.style.fontSize = "20px";
       
       setTimeout(function() {
         messageDiv.style.display = "none";
