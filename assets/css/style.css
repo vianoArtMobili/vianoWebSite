@@ -6200,6 +6200,7 @@ body.out .mouse-pointer {
 
 /** Popup container **/
 .popup {
+  display: none;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -6215,6 +6216,7 @@ body.out .mouse-pointer {
 
 /* Overlay (background dimming) */
 .overlay {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
