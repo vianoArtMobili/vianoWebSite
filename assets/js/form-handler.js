@@ -17,7 +17,10 @@ function closePopup() {
 }
 
 
-document.getElementById('newsletter-form').addEventListener('submit', function(event) {
+const newsletterForm = document.getElementById('newsletter-form');
+
+if (newsletterForm) {
+  newsletterForm.addEventListener('submit', function(event) {
   event.preventDefault();
   const form = event.target;
   const formData = new FormData(this); 
@@ -38,4 +41,5 @@ document.getElementById('newsletter-form').addEventListener('submit', function(e
       openPopup(`${error.message}`, 500);
       form.reset();
   });
-});
+  });
+}
