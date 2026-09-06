@@ -722,9 +722,6 @@
 		}
 	}
 	
-	enableMasonry();
-
-
 	if($('.timer').length){
 	   $(function(){
 		    $('[data-countdown]').each(function() {
@@ -815,6 +812,7 @@
 	
 	$(window).on('load', function() {
 		handlePreloader();
+		enableMasonry();
 	});
 
 	
