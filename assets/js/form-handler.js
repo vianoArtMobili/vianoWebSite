@@ -10,36 +10,7 @@ function openPopup(message, status) {
   document.getElementById("message-text").textContent = message;
   setTimeout(closePopup, 3000);
 }
-
 function closePopup() {
   document.getElementById("popup").style.display = "none";
   document.getElementById("overlay").style.display = "none";
-}
-
-
-const newsletterForm = document.getElementById('newsletter-form');
-
-if (newsletterForm) {
-  newsletterForm.addEventListener('submit', function(event) {
-  event.preventDefault();
-  const form = event.target;
-  const formData = new FormData(this); 
-  
-  fetch('sendNewsletter.php', {
-      method: 'POST',
-      body: formData
-  })
-  .then(response => response.json())
-  .then(data => {
-      if (data.status === 'success') {
-          openPopup(`${data.message}`, 200);
-          form.reset();
-          
-      }
-  })
-  .catch(error => {
-      openPopup(`${error.message}`, 500);
-      form.reset();
-  });
-  });
 }
