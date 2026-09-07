@@ -5143,6 +5143,28 @@ body.out .mouse-pointer {
   margin-bottom: 30px;
 }
 
+.project-page-section .viano-project .image-box img{
+  height: auto;
+}
+
+.project-page-section .viano-project .text{
+  position: static;
+  width: 100%;
+  padding: 18px 20px;
+  transform: none;
+}
+
+.project-page-section .viano-project .text p{
+  margin-top: 6px;
+  font-size: 14px;
+  color: #cbb899;
+}
+
+.project-page-section .viano-project .image-box a:focus-visible{
+  outline: 3px solid #cbb899;
+  outline-offset: -3px;
+}
+
 .project-page-section .filters{
   position: relative;
   display: block;
