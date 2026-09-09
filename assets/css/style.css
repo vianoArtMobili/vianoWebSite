@@ -5158,7 +5158,7 @@ body.out .mouse-pointer {
   position: absolute;
   right: 16px;
   bottom: 16px;
-  width: clamp(145px, 38%, 210px);
+  width: clamp(118px, 30%, 165px);
   aspect-ratio: 461 / 218;
   background: rgba(255, 255, 255, 0.92) url('../images/logo.png') center / 92% auto no-repeat;
   border: 1px solid rgba(255, 255, 255, 0.9);
@@ -5175,8 +5175,8 @@ body.out .mouse-pointer {
   position: absolute;
   right: 3%;
   bottom: 3%;
-  width: 30%;
-  min-width: 145px;
+  width: 24%;
+  min-width: 118px;
   aspect-ratio: 461 / 218;
   background: rgba(255, 255, 255, 0.92) url('../images/logo.png') center / 92% auto no-repeat;
   border: 1px solid rgba(255, 255, 255, 0.9);
@@ -5191,7 +5191,7 @@ body.out .mouse-pointer {
   .project-page-section .viano-project .image-box > a:first-child:after{
     right: 10px;
     bottom: 10px;
-    width: clamp(110px, 35%, 155px);
+    width: clamp(96px, 30%, 130px);
   }
 }
 
