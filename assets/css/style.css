@@ -5147,6 +5147,54 @@ body.out .mouse-pointer {
   height: auto;
 }
 
+/* Brand watermark for every portfolio image, without altering the source photos. */
+.project-page-section .viano-project .image-box > a:first-child{
+  position: relative;
+  display: block;
+}
+
+.project-page-section .viano-project .image-box > a:first-child:after{
+  content: '';
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  width: clamp(145px, 38%, 210px);
+  aspect-ratio: 461 / 218;
+  background: rgba(255, 255, 255, 0.92) url('../images/logo.png') center / 92% auto no-repeat;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+  box-shadow: 0 2px 9px rgba(0, 0, 0, 0.4);
+  opacity: 0.96;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Keep the watermark visible when a portfolio photograph is opened in the lightbox. */
+.fancybox-slide--image .fancybox-image-wrap:after{
+  content: '';
+  position: absolute;
+  right: 3%;
+  bottom: 3%;
+  width: 30%;
+  min-width: 145px;
+  aspect-ratio: 461 / 218;
+  background: rgba(255, 255, 255, 0.92) url('../images/logo.png') center / 92% auto no-repeat;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+  box-shadow: 0 2px 9px rgba(0, 0, 0, 0.4);
+  opacity: 0.96;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@media (max-width: 575px){
+  .project-page-section .viano-project .image-box > a:first-child:after{
+    right: 10px;
+    bottom: 10px;
+    width: clamp(110px, 35%, 155px);
+  }
+}
+
 .project-page-section .viano-project .text{
   position: static;
   width: 100%;
