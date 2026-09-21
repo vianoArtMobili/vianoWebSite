@@ -5271,6 +5271,9 @@ body.out .mouse-pointer {
   position: absolute;
   left: 50%;
   top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 74px;
   height: 74px;
   border: 2px solid rgba(255, 255, 255, 0.95);
@@ -5280,11 +5283,17 @@ body.out .mouse-pointer {
   transform: translate(-50%, -50%);
   z-index: 2;
   transition: transform 180ms ease, background 180ms ease;
-  color: #fff;
-  font-size: 25px;
-  line-height: 70px;
-  text-align: center;
-  padding-left: 4px;
+  font-size: 0;
+}
+
+.project-page-section .viano-video-card .viano-play-icon:after{
+  content: '';
+  width: 0;
+  height: 0;
+  margin-left: 5px;
+  border-top: 13px solid transparent;
+  border-bottom: 13px solid transparent;
+  border-left: 19px solid #fff;
 }
 
 .project-page-section .viano-video-card .image-box > a:first-child:after{
