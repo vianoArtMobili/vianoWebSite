@@ -5332,13 +5332,58 @@ body.out .mouse-pointer {
 }
 
 @media (max-width: 575px){
+  .page-title .outer-container{
+    padding: 112px 0;
+  }
+
+  .page-title .title-box h2{
+    font-size: 27px;
+    line-height: 38px;
+    letter-spacing: 0.07em;
+  }
+
+  .project-page-section .sec-title h2{
+    font-size: 31px;
+    line-height: 41px;
+  }
+
+  .project-page-section .sec-title h2 br{
+    display: block;
+  }
+
+  .project-page-section .filters .filter-tabs li{
+    margin: 0 11px 8px;
+    font-size: 18px;
+  }
+
   .viano-video-showcase{
     margin-bottom: 42px;
     padding: 32px 16px 6px;
+    overflow: hidden;
   }
 
   .viano-video-showcase-heading h3{
     font-size: 25px;
+  }
+
+  .viano-video-showcase .row{
+    display: block;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .viano-video-showcase .row > [class*="col-"]{
+    width: 100%;
+    max-width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .viano-video-feature{
+    width: 100%;
+    max-width: 330px;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   .project-page-section .viano-video-card .viano-play-icon{
