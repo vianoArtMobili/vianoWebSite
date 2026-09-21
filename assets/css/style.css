@@ -5267,8 +5267,12 @@ body.out .mouse-pointer {
   transform: scale(1.03);
 }
 
-.viano-video-feature.is-supplied-thumbnail .image-box > a:first-child:after{
-  display: none;
+.viano-video-frame-thumbnail .image-box > a:first-child{
+  aspect-ratio: 478 / 850;
+}
+
+.viano-video-frame-thumbnail .image-box img{
+  object-fit: contain;
 }
 
 .project-page-section .viano-video-card .viano-play-icon{
