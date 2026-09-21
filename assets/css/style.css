@@ -5213,6 +5213,85 @@ body.out .mouse-pointer {
   outline-offset: -3px;
 }
 
+/* Video tours use the same branded presentation as the portfolio photographs. */
+.project-page-section .viano-video-card .viano-play-icon{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 74px;
+  height: 74px;
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  background: rgba(18, 18, 18, 0.66);
+  box-shadow: 0 5px 22px rgba(0, 0, 0, 0.35);
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  transition: transform 180ms ease, background 180ms ease;
+  color: #fff;
+  font-size: 25px;
+  line-height: 70px;
+  text-align: center;
+  padding-left: 4px;
+}
+
+.project-page-section .viano-video-card .image-box > a:first-child:after{
+  z-index: 3;
+}
+
+.project-page-section .viano-video-card .image-box > a:first-child:focus-visible .viano-play-icon,
+.project-page-section .viano-video-card .image-box > a:first-child:hover .viano-play-icon{
+  background: rgba(203, 184, 153, 0.88);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.viano-video-source{
+  display: none;
+}
+
+.fancybox-content .viano-video-player,
+.fancybox-slide .viano-video-player{
+  position: relative;
+  width: min(430px, 86vw);
+  background: #121212;
+  box-shadow: 0 12px 45px rgba(0, 0, 0, 0.5);
+}
+
+.fancybox-content .viano-video-player video,
+.fancybox-slide .viano-video-player video{
+  display: block;
+  width: 100%;
+  max-height: 80vh;
+}
+
+.fancybox-content .viano-video-watermark,
+.fancybox-slide .viano-video-watermark{
+  position: absolute;
+  right: 12px;
+  bottom: 54px;
+  width: 128px;
+  aspect-ratio: 461 / 218;
+  background: rgba(255, 255, 255, 0.92) url('../images/logo.png') center / 92% auto no-repeat;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+  box-shadow: 0 2px 9px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  z-index: 3;
+}
+
+@media (max-width: 575px){
+  .project-page-section .viano-video-card .viano-play-icon{
+    width: 62px;
+    height: 62px;
+  }
+
+  .fancybox-content .viano-video-watermark,
+  .fancybox-slide .viano-video-watermark{
+    width: 104px;
+    right: 9px;
+    bottom: 47px;
+  }
+}
+
 .project-page-section .filters{
   position: relative;
   display: block;
