@@ -5214,6 +5214,63 @@ body.out .mouse-pointer {
 }
 
 /* Video tours use the same branded presentation as the portfolio photographs. */
+.viano-video-showcase{
+  margin: 0 0 60px;
+  padding: 42px 34px 16px;
+  background: #171717;
+  border-top: 3px solid #cbb899;
+}
+
+.viano-video-showcase-heading{
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.viano-video-showcase-heading p{
+  margin: 0 0 7px;
+  color: #cbb899;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.viano-video-showcase-heading h3{
+  margin: 0;
+  color: #fff;
+  font-size: 30px;
+}
+
+.viano-video-showcase-heading span{
+  display: block;
+  margin-top: 8px;
+  color: #d4d0c8;
+}
+
+.viano-video-feature{
+  margin-bottom: 26px;
+}
+
+.viano-video-feature .image-box > a:first-child{
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #090909;
+}
+
+.viano-video-feature .image-box img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 300ms ease;
+}
+
+.viano-video-feature .image-box > a:first-child:hover img{
+  transform: scale(1.03);
+}
+
+.viano-video-feature.is-supplied-thumbnail .image-box > a:first-child:after{
+  display: none;
+}
+
 .project-page-section .viano-video-card .viano-play-icon{
   position: absolute;
   left: 50%;
@@ -5279,6 +5336,15 @@ body.out .mouse-pointer {
 }
 
 @media (max-width: 575px){
+  .viano-video-showcase{
+    margin-bottom: 42px;
+    padding: 32px 16px 6px;
+  }
+
+  .viano-video-showcase-heading h3{
+    font-size: 25px;
+  }
+
   .project-page-section .viano-video-card .viano-play-icon{
     width: 62px;
     height: 62px;
