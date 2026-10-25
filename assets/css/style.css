@@ -5148,12 +5148,12 @@ body.out .mouse-pointer {
 }
 
 /* Brand watermark for every portfolio image, without altering the source photos. */
-.project-page-section .viano-project .image-box > a:first-child{
+.viano-project .image-box > a:first-child{
   position: relative;
   display: block;
 }
 
-.project-page-section .viano-project .image-box > a:first-child:after{
+.viano-project .image-box > a:first-child:after{
   content: '';
   position: absolute;
   right: 16px;
@@ -5188,7 +5188,7 @@ body.out .mouse-pointer {
 }
 
 @media (max-width: 575px){
-  .project-page-section .viano-project .image-box > a:first-child:after{
+  .viano-project .image-box > a:first-child:after{
     right: 10px;
     bottom: 10px;
     width: clamp(96px, 30%, 130px);
